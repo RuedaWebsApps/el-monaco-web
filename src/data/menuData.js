@@ -138,8 +138,8 @@ export const dishes = [
   {
     id: 'costillas-angus',
     category: 'cortes',
-    name: 'Costillas Angus al Barril',
-    en: 'Barrel Smoked Angus Short Ribs',
+    name: 'Costilla de Res Angus al Barril',
+    en: 'Barrel Smoked Angus Beef Rib',
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
@@ -147,15 +147,15 @@ export const dishes = [
     image: P + 'costillas-angus.webp',
   },
   {
-    id: 'costilla-res-angus',
+    id: 'tuetano-al-barril',
     category: 'cortes',
-    name: 'Costilla de Res Angus al Barril',
-    en: 'Barrel Smoked Angus Beef Rib',
+    name: 'Tuétano al Barril',
+    en: 'Barrel Smoked Bone Marrow',
     description:
-      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Tuétano de res asado y ahumado lentamente al barril, servido con bastones de yuca dorada.',
     descriptionEn:
-      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
-    image: P + 'costilla-res-angus.webp',
+      'Slow barrel-smoked beef bone marrow served with golden fried yuca sticks.',
+    image: P + 'tuetano-al-barril.webp',
   },
   {
     id: 'cordero',
