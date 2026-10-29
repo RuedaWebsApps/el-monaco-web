@@ -49,6 +49,12 @@ body {
 @keyframes slide-in { from { transform: translateX(100%); } to { transform: none; } }
 .slide-in { animation: slide-in 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 
+@keyframes ember-glow {
+  0%, 100% { text-shadow: 0 0 24px rgba(196, 85, 45, 0.28), 0 0 48px rgba(196, 65, 28, 0.14); }
+  50% { text-shadow: 0 0 34px rgba(245, 130, 55, 0.48), 0 0 68px rgba(196, 65, 28, 0.28); }
+}
+.ember-word { animation: ember-glow 4s ease-in-out infinite; }
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
   padding: 0.95rem 1.7rem; font-size: 0.72rem; letter-spacing: 0.2em;

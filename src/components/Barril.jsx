@@ -1,16 +1,24 @@
 import { business } from '../data/menuData';
+import FireCanvas from './FireCanvas';
 
 export default function Barril() {
   return (
-    <section id="barril" className="scroll-mt-16 bg-ink py-28 lg:py-36">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
+    <section id="barril" className="relative scroll-mt-16 overflow-hidden bg-ink py-28 lg:py-36">
+      {/* Brasas y fuego suave en el fondo de la sección */}
+      <FireCanvas intensity={0.75} />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
         <div className="lg:col-span-7">
-          <div className="flex aspect-[16/10] w-full items-center justify-center bg-plate p-8 sm:p-12">
+          <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-plate p-6 sm:p-10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ember/15 via-transparent to-transparent"
+            />
             <img
               src="/images/chicharron-barril.webp"
               alt="Chicharrón al barril"
               loading="lazy"
-              className="plate-shadow max-h-full max-w-full object-contain"
+              className="plate-shadow relative z-10 max-h-full max-w-full object-contain"
             />
           </div>
         </div>
