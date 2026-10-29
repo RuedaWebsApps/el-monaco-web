@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <radialGradient id="barrelGrad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" />
-      <stop offset="100%" stop-color="#991b1b" />
-    </radialGradient>
-  </defs>
-  <circle cx="50" cy="50" r="48" fill="#121010" stroke="#ef4444" stroke-width="2.5" />
-  <path d="M50 18 C35 32 32 50 38 65 C42 74 50 82 50 82 C50 82 58 74 62 65 C68 50 65 32 50 18 Z" fill="url(#barrelGrad)" />
-  <path d="M50 30 C43 40 42 52 46 62 C48 68 50 72 50 72 C50 72 52 68 54 62 C58 52 57 40 50 30 Z" fill="#fbbf24" />
-  <circle cx="50" cy="50" r="4" fill="#ffffff" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="#0b0908"/><text x="32" y="43" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#efe6d8">M</text><rect x="14" y="50" width="36" height="2" fill="#c4552d"/></svg>
