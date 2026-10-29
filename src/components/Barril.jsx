@@ -4,17 +4,18 @@ export default function Barril() {
   return (
     <section id="barril" className="scroll-mt-16 bg-ink py-28 lg:py-36">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
-        <div className="relative lg:col-span-6">
-          <img
-            src="/images/barril.jpg"
-            alt="Chicharrón recién salido del barril"
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover"
-          />
-          <div className="pointer-events-none absolute -bottom-4 -right-4 hidden h-full w-full border border-brass/30 lg:block" />
+        <div className="lg:col-span-7">
+          <div className="flex aspect-[16/10] w-full items-center justify-center bg-plate p-8 sm:p-12">
+            <img
+              src="/images/chicharron-barril.webp"
+              alt="Chicharrón al barril"
+              loading="lazy"
+              className="plate-shadow max-h-full max-w-full object-contain"
+            />
+          </div>
         </div>
 
-        <div className="lg:col-span-6 lg:pl-6">
+        <div className="lg:col-span-5">
           <p className="eyebrow">El Barril</p>
           <blockquote className="display mt-6 text-4xl leading-[1.12] sm:text-5xl">
             “{business.quoteEs}”

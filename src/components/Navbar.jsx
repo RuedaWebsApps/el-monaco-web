@@ -25,9 +25,12 @@ export default function Navbar({ count, onCart }) {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#inicio" className="leading-none">
-          <span className="display block text-2xl tracking-wide">El Mónaco</span>
-          <span className="eyebrow mt-1 block !text-[0.58rem]">Ahumados al Barril</span>
+        <a href="#inicio" className="flex items-center gap-4 leading-none" aria-label="El Mónaco, inicio">
+          <img src="/logo.png" alt="El Mónaco Ahumados al Barril" className="h-14 w-14 rounded-full" />
+          <span className="hidden sm:block">
+            <span className="display block text-2xl tracking-wide">El Mónaco</span>
+            <span className="eyebrow mt-1 block !text-[0.58rem]">Ahumados al Barril</span>
+          </span>
         </a>
 
         <nav className="hidden items-center gap-10 md:flex">

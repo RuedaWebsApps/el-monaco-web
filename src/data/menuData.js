@@ -19,6 +19,12 @@ export const waLink = (text = 'Hola El Mónaco, quisiera hacer un pedido.') =>
 
 const P = '/images/platos/';
 
+export const sections = [
+  { id: 'platos', name: 'Platos', en: 'Main dishes', groups: ['especiales', 'cortes', 'bandejas'] },
+  { id: 'toppings', name: 'Toppings', en: 'Sides & toppings', groups: ['acompanantes'] },
+  { id: 'salsas', name: 'Salsas', en: 'Sauces', groups: ['salsas'] },
+];
+
 export const categories = [
   {
     id: 'especiales',
@@ -40,9 +46,9 @@ export const categories = [
   },
   {
     id: 'acompanantes',
-    name: 'Acompañantes',
-    en: 'Side Orders',
-    note: 'Acompañantes de la casa.',
+    name: 'Toppings y acompañantes',
+    en: 'Side orders',
+    note: 'Para completar tu plato.',
   },
   {
     id: 'salsas',
