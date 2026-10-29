@@ -20,7 +20,7 @@ function AddButton({ added, onClick, className = '' }) {
       {added ? (
         <span className="inline-flex items-center gap-2"><Check /> En tu pedido</span>
       ) : (
-        '+ Agregar'
+        '+ Agregar / Add'
       )}
     </button>
   );
@@ -28,7 +28,7 @@ function AddButton({ added, onClick, className = '' }) {
 
 function Card({ d, added, onAdd, onOpen }) {
   return (
-    <article className="group">
+    <article className="group flex flex-col">
       <button
         onClick={() => onOpen(d)}
         className="relative flex aspect-[4/3] w-full cursor-pointer items-center justify-center overflow-hidden bg-plate p-6"
@@ -36,20 +36,27 @@ function Card({ d, added, onAdd, onOpen }) {
       >
         <img
           src={d.image}
-          alt={d.name}
+          alt={`${d.name} - ${d.en}`}
           loading="lazy"
           className="plate-shadow max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.05]"
         />
       </button>
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>
-          <h4 className="display text-[1.6rem] leading-tight">{d.name}</h4>
-          <p className="mt-1 text-[0.78rem] text-ash">{d.en}</p>
+          <h4 className="display text-[1.6rem] leading-tight text-bone">{d.name}</h4>
+          <p className="display mt-0.5 text-[1.1rem] italic text-brass">{d.en}</p>
         </div>
-        <AddButton added={added} onClick={() => onAdd(d)} className="mt-2" />
+        <AddButton added={added} onClick={() => onAdd(d)} className="mt-1.5" />
       </div>
-      {d.description && (
-        <p className="mt-3 text-[0.85rem] leading-relaxed text-ash">{d.description}</p>
+      {(d.description || d.descriptionEn) && (
+        <div className="mt-3 space-y-1.5 border-t hairline pt-3">
+          {d.description && (
+            <p className="text-[0.84rem] leading-relaxed text-bone/85">{d.description}</p>
+          )}
+          {d.descriptionEn && (
+            <p className="text-[0.78rem] italic leading-relaxed text-ash">{d.descriptionEn}</p>
+          )}
+        </div>
       )}
     </article>
   );
@@ -59,11 +66,18 @@ function Row({ d, added, onAdd }) {
   return (
     <li className="flex items-start justify-between gap-6 border-b hairline py-5">
       <div className="max-w-xl">
-        <h4 className="display text-[1.45rem] leading-tight">{d.name}</h4>
-        <p className="mt-1 text-[0.78rem] text-ash">{d.en}</p>
-        {d.description && <p className="mt-3 text-[0.85rem] leading-relaxed text-ash">{d.description}</p>}
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+          <h4 className="display text-[1.45rem] leading-tight text-bone">{d.name}</h4>
+          <span className="display text-[1.05rem] italic text-brass">· {d.en}</span>
+        </div>
+        {d.description && (
+          <p className="mt-2.5 text-[0.84rem] leading-relaxed text-bone/85">{d.description}</p>
+        )}
+        {d.descriptionEn && (
+          <p className="mt-1 text-[0.78rem] italic leading-relaxed text-ash">{d.descriptionEn}</p>
+        )}
       </div>
-      <AddButton added={added} onClick={() => onAdd(d)} className="mt-2" />
+      <AddButton added={added} onClick={() => onAdd(d)} className="mt-1.5" />
     </li>
   );
 }
@@ -73,17 +87,24 @@ function Group({ cat, cart, onAdd, onOpen, solo }) {
   const withImg = list.filter((d) => d.image);
   const plain = list.filter((d) => !d.image);
   const inCart = (id) => cart.some((c) => c.id === id);
-  const cols = cat.id === 'acompanantes' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3';
+  const cols =
+    cat.id === 'acompanantes'
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : cat.id === 'especiales'
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
     <div className="mt-16 first:mt-10">
-      {!solo && (<div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-1 border-b hairline pb-4">
-        <div className="flex items-baseline gap-4">
-          <h3 className="display text-3xl sm:text-4xl">{cat.name}</h3>
-          <span className="display hidden text-lg italic text-ash sm:inline">{cat.en}</span>
+      {!solo && (
+        <div className="flex flex-wrap items-end justify-between gap-x-8 gap-y-2 border-b hairline pb-4">
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+            <h3 className="display text-3xl sm:text-4xl">{cat.name}</h3>
+            <span className="display text-xl italic text-brass">{cat.en}</span>
+          </div>
+          <p className="text-[0.76rem] text-ash">{cat.note}</p>
         </div>
-        <p className="text-[0.78rem] text-ash">{cat.note}</p>
-      </div>)}
+      )}
 
       {withImg.length > 0 && (
         <div className={`mt-10 grid gap-x-8 gap-y-14 ${cols}`}>
@@ -125,33 +146,37 @@ export default function Menu({ cart, onAdd, onOpen }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <p className="eyebrow">La carta</p>
+            <p className="eyebrow">La Carta · Our Menu</p>
             <h2 className="display mt-5 text-5xl leading-[1.05] sm:text-6xl">
               Del barril
               <br />
               <em>a la mesa.</em>
             </h2>
           </div>
-          <div className="flex items-end lg:col-span-7">
-            <p className="max-w-lg text-[0.95rem] leading-relaxed text-ash">
-              {business.included} Arma tu pedido y envíalo por WhatsApp para confirmar disponibilidad.
+          <div className="flex flex-col justify-end space-y-2 lg:col-span-7">
+            <p className="max-w-xl text-[0.95rem] leading-relaxed text-bone/90">
+              {business.included}
+            </p>
+            <p className="max-w-xl text-[0.85rem] italic leading-relaxed text-ash">
+              {business.includedEn}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Navegación fija del menú */}
+      {/* Navegación fija bilingüe del menú */}
       <div className="sticky top-20 z-30 mt-14 border-y hairline bg-coal/95 backdrop-blur">
         <div className="no-scrollbar mx-auto flex max-w-7xl gap-10 overflow-x-auto px-6 lg:px-10">
           {sections.map((s) => (
             <a
               key={s.id}
               href={`#sec-${s.id}`}
-              className={`relative shrink-0 py-5 text-[0.72rem] uppercase tracking-[0.24em] transition-colors ${
+              className={`relative shrink-0 py-5 text-[0.72rem] uppercase tracking-[0.22em] transition-colors ${
                 active === s.id ? 'text-bone' : 'text-ash hover:text-bone'
               }`}
             >
-              {s.name}
+              <span>{s.name}</span>
+              <span className="ml-2 text-brass/80">/ {s.en}</span>
               <span
                 className={`absolute inset-x-0 -bottom-px h-px origin-left bg-ember transition-transform duration-300 ${
                   active === s.id ? 'scale-x-100' : 'scale-x-0'
@@ -165,10 +190,10 @@ export default function Menu({ cart, onAdd, onOpen }) {
       <div className="mx-auto max-w-7xl px-6 pb-28 lg:px-10 lg:pb-36">
         {sections.map((s, i) => (
           <div key={s.id} id={`sec-${s.id}`} className={`scroll-mt-44 ${i ? 'mt-28' : 'mt-20'}`}>
-            <div className="flex items-baseline gap-5">
+            <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
               <span className="text-[0.7rem] tracking-[0.3em] text-brass">0{i + 1}</span>
               <h2 className="display text-5xl sm:text-6xl">{s.name}</h2>
-              <span className="display hidden text-2xl italic text-ash sm:inline">{s.en}</span>
+              <span className="display text-2xl italic text-brass sm:text-3xl">/ {s.en}</span>
             </div>
             {s.groups.map((g) => (
               <Group key={g} cat={categories.find((c) => c.id === g)} cart={cart} onAdd={onAdd} onOpen={onOpen} solo={s.groups.length === 1} />

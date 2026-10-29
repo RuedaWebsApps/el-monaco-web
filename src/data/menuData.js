@@ -1,5 +1,6 @@
 export const business = {
   name: 'Ahumados al Barril El Mónaco',
+  nameEn: 'Barrel Smoked El Mónaco',
   short: 'El Mónaco',
   city: 'Austin, Texas',
   phone: '737-429-8756',
@@ -12,6 +13,8 @@ export const business = {
   quoteEn: "At El Mónaco, we don't light a grill… we master the fire.",
   included:
     'Todos nuestros platos incluyen las salsas de la casa, guacamole y ají ahumado.',
+  includedEn:
+    'All our plates include house sauces, guacamole and smoked chili sauce.',
 };
 
 export const waLink = (text = 'Hola El Mónaco, quisiera hacer un pedido.') =>
@@ -20,254 +23,299 @@ export const waLink = (text = 'Hola El Mónaco, quisiera hacer un pedido.') =>
 const P = '/images/platos/';
 
 export const sections = [
-  { id: 'platos', name: 'Platos', en: 'Main dishes', groups: ['especiales', 'cortes', 'bandejas'] },
-  { id: 'acompanamientos', name: 'Acompañamientos', en: 'Side orders', groups: ['acompanantes'] },
+  { id: 'platos', name: 'Platos', en: 'Main Dishes', groups: ['especiales', 'cortes', 'bandejas'] },
+  { id: 'acompanamientos', name: 'Acompañamientos', en: 'Side Orders', groups: ['acompanantes'] },
   { id: 'salsas', name: 'Salsas', en: 'Sauces', groups: ['salsas'] },
 ];
 
 export const categories = [
   {
     id: 'especiales',
-    name: 'Especiales de la Casa',
+    name: 'Especial de la Casa',
     en: 'House Specials',
-    note: 'Con papa o yuca.',
+    note: 'Con papa o yuca · With potato or yuca.',
   },
   {
     id: 'cortes',
     name: 'Cortes al Barril',
     en: 'Barrel Smoked Cuts',
-    note: 'Cada corte incluye chorizo, longaniza, yuca, papa y plátano maduro.',
+    note: 'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro · Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
   },
   {
     id: 'bandejas',
     name: 'Especiales del Barril',
     en: 'Barrel Specials',
-    note: 'Para compartir.',
+    note: 'Para compartir · Platters & boards.',
   },
   {
     id: 'acompanantes',
-    name: 'Acompañamientos de la Casa',
-    en: 'Side orders',
-    note: 'Guarniciones y acompañantes al barril.',
+    name: 'Acompañantes de la Casa',
+    en: 'Side Orders',
+    note: 'Guarniciones al barril · House side orders.',
   },
   {
     id: 'salsas',
     name: 'Salsas de la Casa',
-    en: 'House sauces',
-    note: 'Incluidas con todos nuestros platos.',
+    en: 'House Sauces',
+    note: 'Incluidas con todos nuestros platos · Included with all our plates.',
   },
 ];
 
-// image: null -> se muestra en lista limpia sin foto
+// image: null -> se muestra en lista bilingüe sin foto
 export const dishes = [
-  // Especiales de la casa
+  // ESPECIAL DE LA CASA / HOUSE SPECIALS
   {
     id: 'chicharron',
     category: 'especiales',
     name: 'Chicharrón al Barril',
-    en: 'Barrel-smoked pork belly',
+    en: 'Barrel-Smoked Pork Belly',
     description: 'Crujiente chicharrón al barril con papa o yuca.',
+    descriptionEn: 'Crispy barrel-smoked pork belly with potato or yuca.',
     image: P + 'chicharron.webp',
   },
   {
     id: 'costichicharron',
     category: 'especiales',
     name: 'Costichicharrón al Barril',
-    en: 'Smoked pork rib with crispy skin',
-    description: 'Costilla de cerdo con cuero, ahumada al barril, con papa o yuca.',
+    en: 'Barrel-Smoked Pork Rib with Crispy Skin',
+    description: 'Costilla de cerdo con cuero ahumada al barril, con papa o yuca.',
+    descriptionEn: 'Barrel-smoked pork rib with crispy skin, with potato or yuca.',
     image: P + 'costichicharron.webp',
+  },
+  {
+    id: 'media-plancha-pork-belly',
+    category: 'especiales',
+    name: 'Media Plancha de Pork Belly Crispy',
+    en: 'Half Slab Crispy Barrel-Smoked Pork Belly',
+    description: 'Media plancha de chicharrón carnudo al barril con piel dorada ultra crujiente.',
+    descriptionEn: 'Half slab of meaty barrel-smoked pork belly with ultra-crispy golden skin.',
+    image: P + 'media-plancha-pork-belly-crispy.webp',
   },
   {
     id: 'maduro-queso',
     category: 'especiales',
     name: 'Maduro con Queso',
-    en: 'Ripe plantain with melted cheese',
+    en: 'Ripe Plantain with Cheese',
     description: 'Plátano macho maduro asado al barril cubierto con abundante queso fundido.',
+    descriptionEn: 'Barrel-roasted sweet ripe plantain topped with melted cheese.',
     image: P + 'maduro-con-queso.webp',
   },
 
-  // Cortes al Barril (nombres rectificados)
+  // CORTES AL BARRIL / BARREL SMOKED CUTS
   {
     id: 'ribeye',
     category: 'cortes',
     name: 'Ribeye al Barril',
-    en: 'Barrel smoked ribeye',
+    en: 'Barrel Smoked Ribeye',
     description:
-      'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'ribeye.webp',
   },
   {
     id: 'new-york',
     category: 'cortes',
     name: 'New York al Barril',
-    en: 'Barrel smoked New York strip',
+    en: 'Barrel Smoked New York Strip',
     description:
-      'Corte New York jugoso al barril. Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'new-york.webp',
   },
   {
     id: 'picana',
     category: 'cortes',
     name: 'Picaña al Barril',
-    en: 'Barrel smoked picanha',
+    en: 'Barrel Smoked Picanha',
     description:
-      'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'picana.webp',
   },
   {
     id: 'costillas-angus',
     category: 'cortes',
     name: 'Costillas Angus al Barril',
-    en: 'Barrel smoked Angus ribs',
+    en: 'Barrel Smoked Angus Short Ribs',
     description:
-      'Tiras de costilla Angus ahumadas al barril con chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'costillas-angus.webp',
   },
   {
     id: 'costilla-res-angus',
     category: 'cortes',
     name: 'Costilla de Res Angus al Barril',
-    en: 'Barrel smoked Angus beef rib',
+    en: 'Barrel Smoked Angus Beef Rib',
     description:
-      'Costilla de res en hueso largo ahumada lentamente al barril, acompañada de guarnición.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'costilla-res-angus.webp',
   },
   {
     id: 'cordero',
     category: 'cortes',
     name: 'Costilla de Cordero al Barril',
-    en: 'Barrel smoked lamb rib',
+    en: 'Barrel Smoked Lamb Rib',
     description:
-      'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: P + 'costilla-cordero.webp',
   },
   {
     id: 'entrana',
     category: 'cortes',
     name: 'Entraña al Barril',
-    en: 'Barrel smoked skirt steak',
+    en: 'Barrel Smoked Skirt Steak',
     description:
-      'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: null,
   },
 
-  // Especiales del barril / Bandejas
+  // ESPECIALES DEL BARRIL / BARREL SPECIALS
   {
     id: 'bandeja-monaco',
     category: 'bandejas',
     name: 'Bandeja El Mónaco',
-    en: 'El Mónaco platter',
+    en: 'El Mónaco Platter',
     description:
-      'Longaniza artesanal, carne de res, costilla de cerdo y chicharrón al barril, con papa o yuca.',
+      'Una combinación de longaniza artesanal, carne de res, costilla de cerdo y chicharrón al barril, con papa o yuca.',
+    descriptionEn:
+      'A combination of artisanal sausage, beef, pork rib and barrel-smoked pork belly, with potato or yuca.',
     image: P + 'bandeja-el-monaco.webp',
   },
   {
     id: 'bandeja-charro',
     category: 'bandejas',
     name: 'Bandeja del Charro',
-    en: 'Charro platter',
+    en: 'Charro Platter',
     description:
-      'Nuestra parrillada más completa: chorizo colombiano, longaniza artesanal, dos costichicharrones, carne de res, costilla de cerdo, costilla de cordero, papa o yuca y plátano maduro.',
+      'Nuestra parrillada más completa con chorizo colombiano, longaniza artesanal, dos costichicharrones, carne de res, costilla de cerdo, costilla de cordero, papa o yuca y plátano maduro.',
+    descriptionEn:
+      'Our most complete grill with Colombian chorizo, artisanal sausage, two COSTICHICHARRONES, beef, pork rib, lamb rib, potato or yuca, and sweet ripe plantain.',
     image: P + 'bandeja-del-charro.webp',
   },
   {
     id: 'bandeja-montanera',
     category: 'bandejas',
     name: 'Bandeja Montañera',
-    en: 'Montañera platter',
+    en: 'Montañera Platter',
     description:
       'Base de queso, chicharrón al barril, morcilla, chorizo colombiano y plátano maduro.',
+    descriptionEn:
+      'Cheese base, barrel-smoked pork belly, blood sausage, Colombian chorizo, sweet ripe plantain.',
     image: P + 'bandeja-montanera.webp',
   },
   {
     id: 'bandeja-moro',
     category: 'bandejas',
-    name: 'Bandeja de Moro',
-    en: 'Moro rice platter · dos tipos de carne',
+    name: 'Bandeja de Moro (dos tipos de carne)',
+    en: 'Moro Rice Platter (two meat options)',
     description:
-      'Arroz moro con dos carnes a elegir: costilla de cerdo, carne de res o chicharrón al barril, y plátano macho frito.',
+      'Arroz moro con dos opciones de carne a elegir: costilla de cerdo, carne de res o chicharrón al barril, y plátano macho frito.',
+    descriptionEn:
+      'Moro rice with two meat options to choose from: pork rib, beef or barrel-smoked pork belly, with fried sweet ripe plantain.',
     image: null,
   },
   {
     id: 'tabla-premium',
     category: 'bandejas',
     name: 'Tabla Premium',
-    en: 'Premium board',
+    en: 'Premium Barrel-Smoked Board',
     description:
-      'Selección de carnes premium al barril con chorizo colombiano, longaniza artesanal, carne de res, ribeye, entraña, costilla de cordero, papa, yuca y plátano maduro.',
+      'Selección de carnes premium al barril con chorizo colombiano, longaniza artesanal, carne de res, ribeye, entraña de res, costilla de cordero, papa, yuca y plátano maduro.',
+    descriptionEn:
+      'Premium barrel-smoked meat selection with Colombian chorizo, artisanal sausage, beef, ribeye, skirt steak, lamb rib, potato, yuca and sweet ripe plantain.',
     image: null,
   },
 
-  // Acompañamientos (los 3 nuevos + el arroz moro + acompañantes de lista)
+  // ACOMPAÑANTES DE LA CASA / SIDE ORDERS
   {
     id: 'arroz-moro',
     category: 'acompanantes',
     name: 'Arroz Moro',
-    en: 'Moro rice',
-    description: 'Porción de arroz moro tradicional sazonado en casa.',
+    en: 'Moro Rice',
+    description: 'Arroz moro tradicional de la casa.',
+    descriptionEn: 'Traditional house Moro rice.',
     image: P + 'arroz-moro.webp',
   },
   {
     id: 'tajadas-platano',
     category: 'acompanantes',
     name: 'Tajadas de Plátano',
-    en: 'Fried sweet plantain slices',
-    description: 'Tajadas de plátano macho maduro doradas al punto.',
+    en: 'Fried Sweet Plantain Slices',
+    description: 'Tajadas de plátano macho maduro fritas.',
+    descriptionEn: 'Fried sweet ripe plantain slices.',
     image: P + 'tajadas-de-platano.webp',
   },
   {
     id: 'yuca-frita',
     category: 'acompanantes',
     name: 'Yuca Frita',
-    en: 'Crispy fried yuca sticks',
-    description: 'Bastones de yuca crujientes por fuera y suaves por dentro.',
+    en: 'Fried Yuca',
+    description: 'Bastones de yuca frita dorados y crujientes.',
+    descriptionEn: 'Crispy golden fried yuca sticks.',
     image: P + 'yuca-frita.webp',
   },
   {
     id: 'trocitos-yuca',
     category: 'acompanantes',
     name: 'Trocitos de Yuca',
-    en: 'Golden yuca bites',
-    description: 'Bocados dorados de yuca tierna recién hechos.',
+    en: 'Crispy Yuca Bites',
+    description: 'Bocados de yuca dorados al punto.',
+    descriptionEn: 'Golden fried yuca bites.',
     image: P + 'trocitos-de-yuca.webp',
   },
-  { id: 'papa', category: 'acompanantes', name: 'Papa', en: 'Baked potato', description: '', image: null },
-  { id: 'maduro-asado', category: 'acompanantes', name: 'Maduro asado', en: 'Ripe plantain', description: '', image: null },
-  { id: 'morcilla', category: 'acompanantes', name: 'Morcilla', en: 'Blood sausage', description: '', image: null },
-  { id: 'chorizo', category: 'acompanantes', name: 'Chorizo artesanal', en: 'Artisanal chorizo', description: '', image: null },
-  { id: 'longaniza', category: 'acompanantes', name: 'Longaniza', en: 'Artisanal sausage', description: '', image: null },
+  { id: 'papa', category: 'acompanantes', name: 'Papa', en: 'Baked Potato', description: '', descriptionEn: '', image: null },
+  { id: 'yuca', category: 'acompanantes', name: 'Yuca', en: 'Yuca', description: '', descriptionEn: '', image: null },
+  { id: 'maduro-asado', category: 'acompanantes', name: 'Maduro Asado', en: 'Ripe Plantain', description: '', descriptionEn: '', image: null },
+  { id: 'morcilla', category: 'acompanantes', name: 'Morcilla', en: 'Blood Sausage', description: '', descriptionEn: '', image: null },
+  { id: 'chorizo', category: 'acompanantes', name: 'Chorizo Artesanal', en: 'Artisanal Chorizo', description: '', descriptionEn: '', image: null },
+  { id: 'longaniza', category: 'acompanantes', name: 'Longaniza', en: 'Artisanal Sausage', description: '', descriptionEn: '', image: null },
 
-  // Salsas (nombres rectificados)
+  // SALSAS / SAUCES
   {
     id: 'aji-ahumado',
     category: 'salsas',
     name: 'Ají Ahumado',
-    en: 'Smoked chili sauce',
-    description: 'Ají artesanal ahumado de la casa. Incluido con cada plato.',
+    en: 'Smoked Chili Sauce',
+    description: 'Ají artesanal ahumado de la casa. Incluido con todos los platos.',
+    descriptionEn: 'House barrel-smoked chili sauce. Included with all plates.',
     image: P + 'aji-ahumado.webp',
   },
   {
     id: 'chimichurri-ahumado',
     category: 'salsas',
     name: 'Chimichurri Ahumado',
-    en: 'Smoked house chimichurri',
-    description: 'Salsa chimichurri de la casa con pimientos, hierbas frescas y toque ahumado.',
+    en: 'Smoked Chimichurri Sauce',
+    description: 'Salsa chimichurri ahumada de la casa. Incluida con todos los platos.',
+    descriptionEn: 'House smoked chimichurri sauce. Included with all plates.',
     image: P + 'chimichurri-ahumado.webp',
   },
   {
     id: 'guacamole',
     category: 'salsas',
     name: 'Guacamole',
-    en: 'House guacamole',
-    description: 'Guacamole fresco preparado a diario. Incluido con cada plato.',
+    en: 'Fresh Guacamole',
+    description: 'Guacamole fresco de la casa. Incluido con todos los platos.',
+    descriptionEn: 'Fresh house guacamole. Included with all plates.',
     image: P + 'guacamole.webp',
   },
   {
     id: 'salsa-queso',
     category: 'salsas',
-    name: 'Salsa de queso',
-    en: 'Cheese sauce',
+    name: 'Salsa de Queso',
+    en: 'Cheese Sauce',
     description: 'Adicional.',
+    descriptionEn: 'Additional sauce.',
     image: null,
   },
 ];
