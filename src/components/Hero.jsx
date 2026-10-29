@@ -1,5 +1,4 @@
 import { business, waLink } from '../data/menuData';
-import FireCanvas from './FireCanvas';
 
 export default function Hero() {
   return (
@@ -11,9 +10,6 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/30 to-transparent" />
-
-      {/* Animación de llamas y brasas al barril */}
-      <FireCanvas intensity={1.15} />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-40 lg:px-10 lg:pb-24">
         <p className="eyebrow rise">Austin, Texas · 100% al barril</p>

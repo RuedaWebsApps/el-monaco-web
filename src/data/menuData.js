@@ -21,7 +21,7 @@ const P = '/images/platos/';
 
 export const sections = [
   { id: 'platos', name: 'Platos', en: 'Main dishes', groups: ['especiales', 'cortes', 'bandejas'] },
-  { id: 'toppings', name: 'Toppings', en: 'Sides & toppings', groups: ['acompanantes'] },
+  { id: 'acompanamientos', name: 'Acompañamientos', en: 'Side orders', groups: ['acompanantes'] },
   { id: 'salsas', name: 'Salsas', en: 'Sauces', groups: ['salsas'] },
 ];
 
@@ -46,19 +46,19 @@ export const categories = [
   },
   {
     id: 'acompanantes',
-    name: 'Toppings y acompañantes',
+    name: 'Acompañamientos de la Casa',
     en: 'Side orders',
-    note: 'Para completar tu plato.',
+    note: 'Guarniciones y acompañantes al barril.',
   },
   {
     id: 'salsas',
-    name: 'Salsas',
-    en: 'Sauces',
-    note: 'Las salsas de la casa acompañan todos los platos.',
+    name: 'Salsas de la Casa',
+    en: 'House sauces',
+    note: 'Incluidas con todos nuestros platos.',
   },
 ];
 
-// image: null  -> se muestra solo en lista, sin foto
+// image: null -> se muestra en lista limpia sin foto
 export const dishes = [
   // Especiales de la casa
   {
@@ -77,8 +77,16 @@ export const dishes = [
     description: 'Costilla de cerdo con cuero, ahumada al barril, con papa o yuca.',
     image: P + 'costichicharron.webp',
   },
+  {
+    id: 'maduro-queso',
+    category: 'especiales',
+    name: 'Maduro con Queso',
+    en: 'Ripe plantain with melted cheese',
+    description: 'Plátano macho maduro asado al barril cubierto con abundante queso fundido.',
+    image: P + 'maduro-con-queso.webp',
+  },
 
-  // Cortes
+  // Cortes al Barril (nombres rectificados)
   {
     id: 'ribeye',
     category: 'cortes',
@@ -87,6 +95,15 @@ export const dishes = [
     description:
       'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     image: P + 'ribeye.webp',
+  },
+  {
+    id: 'new-york',
+    category: 'cortes',
+    name: 'New York al Barril',
+    en: 'Barrel smoked New York strip',
+    description:
+      'Corte New York jugoso al barril. Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    image: P + 'new-york.webp',
   },
   {
     id: 'picana',
@@ -98,12 +115,21 @@ export const dishes = [
     image: P + 'picana.webp',
   },
   {
-    id: 'angus',
+    id: 'costillas-angus',
+    category: 'cortes',
+    name: 'Costillas Angus al Barril',
+    en: 'Barrel smoked Angus ribs',
+    description:
+      'Tiras de costilla Angus ahumadas al barril con chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    image: P + 'costillas-angus.webp',
+  },
+  {
+    id: 'costilla-res-angus',
     category: 'cortes',
     name: 'Costilla de Res Angus al Barril',
     en: 'Barrel smoked Angus beef rib',
     description:
-      'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+      'Costilla de res en hueso largo ahumada lentamente al barril, acompañada de guarnición.',
     image: P + 'costilla-res-angus.webp',
   },
   {
@@ -122,10 +148,10 @@ export const dishes = [
     en: 'Barrel smoked skirt steak',
     description:
       'Incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
-    image: P + 'entrana.webp',
+    image: null,
   },
 
-  // Especiales del barril
+  // Especiales del barril / Bandejas
   {
     id: 'bandeja-monaco',
     category: 'bandejas',
@@ -169,56 +195,79 @@ export const dishes = [
     en: 'Premium board',
     description:
       'Selección de carnes premium al barril con chorizo colombiano, longaniza artesanal, carne de res, ribeye, entraña, costilla de cordero, papa, yuca y plátano maduro.',
-    image: P + 'tabla-premium.webp',
+    image: null,
   },
 
-  // Acompañantes
-  { id: 'papa', category: 'acompanantes', name: 'Papa', en: 'Baked potato', description: '', image: null },
-  { id: 'yuca', category: 'acompanantes', name: 'Yuca', en: 'Yuca', description: '', image: null },
-  { id: 'maduro-asado', category: 'acompanantes', name: 'Maduro asado', en: 'Ripe plantain', description: '', image: null },
-  {
-    id: 'maduro-queso',
-    category: 'acompanantes',
-    name: 'Maduro con queso',
-    en: 'Ripe plantain with cheese',
-    description: '',
-    image: P + 'maduro-con-queso.webp',
-  },
+  // Acompañamientos (los 3 nuevos + el arroz moro + acompañantes de lista)
   {
     id: 'arroz-moro',
     category: 'acompanantes',
-    name: 'Arroz moro',
+    name: 'Arroz Moro',
     en: 'Moro rice',
-    description: '',
+    description: 'Porción de arroz moro tradicional sazonado en casa.',
     image: P + 'arroz-moro.webp',
   },
+  {
+    id: 'tajadas-platano',
+    category: 'acompanantes',
+    name: 'Tajadas de Plátano',
+    en: 'Fried sweet plantain slices',
+    description: 'Tajadas de plátano macho maduro doradas al punto.',
+    image: P + 'tajadas-de-platano.webp',
+  },
+  {
+    id: 'yuca-frita',
+    category: 'acompanantes',
+    name: 'Yuca Frita',
+    en: 'Crispy fried yuca sticks',
+    description: 'Bastones de yuca crujientes por fuera y suaves por dentro.',
+    image: P + 'yuca-frita.webp',
+  },
+  {
+    id: 'trocitos-yuca',
+    category: 'acompanantes',
+    name: 'Trocitos de Yuca',
+    en: 'Golden yuca bites',
+    description: 'Bocados dorados de yuca tierna recién hechos.',
+    image: P + 'trocitos-de-yuca.webp',
+  },
+  { id: 'papa', category: 'acompanantes', name: 'Papa', en: 'Baked potato', description: '', image: null },
+  { id: 'maduro-asado', category: 'acompanantes', name: 'Maduro asado', en: 'Ripe plantain', description: '', image: null },
   { id: 'morcilla', category: 'acompanantes', name: 'Morcilla', en: 'Blood sausage', description: '', image: null },
   { id: 'chorizo', category: 'acompanantes', name: 'Chorizo artesanal', en: 'Artisanal chorizo', description: '', image: null },
   { id: 'longaniza', category: 'acompanantes', name: 'Longaniza', en: 'Artisanal sausage', description: '', image: null },
 
-  // Salsas
+  // Salsas (nombres rectificados)
   {
-    id: 'salsa-queso',
+    id: 'aji-ahumado',
     category: 'salsas',
-    name: 'Salsa de queso',
-    en: 'Cheese sauce',
-    description: 'Adicional.',
-    image: P + 'salsa-queso.webp',
+    name: 'Ají Ahumado',
+    en: 'Smoked chili sauce',
+    description: 'Ají artesanal ahumado de la casa. Incluido con cada plato.',
+    image: P + 'aji-ahumado.webp',
+  },
+  {
+    id: 'chimichurri-ahumado',
+    category: 'salsas',
+    name: 'Chimichurri Ahumado',
+    en: 'Smoked house chimichurri',
+    description: 'Salsa chimichurri de la casa con pimientos, hierbas frescas y toque ahumado.',
+    image: P + 'chimichurri-ahumado.webp',
   },
   {
     id: 'guacamole',
     category: 'salsas',
     name: 'Guacamole',
     en: 'House guacamole',
-    description: 'Incluido con cada plato.',
+    description: 'Guacamole fresco preparado a diario. Incluido con cada plato.',
     image: P + 'guacamole.webp',
   },
   {
-    id: 'aji',
+    id: 'salsa-queso',
     category: 'salsas',
-    name: 'Ají de la casa',
-    en: 'House chili sauce',
-    description: 'Incluido con cada plato.',
-    image: P + 'aji-casa.webp',
+    name: 'Salsa de queso',
+    en: 'Cheese sauce',
+    description: 'Adicional.',
+    image: null,
   },
 ];

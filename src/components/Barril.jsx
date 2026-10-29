@@ -1,12 +1,8 @@
 import { business } from '../data/menuData';
-import FireCanvas from './FireCanvas';
 
 export default function Barril() {
   return (
     <section id="barril" className="relative scroll-mt-16 overflow-hidden bg-ink py-28 lg:py-36">
-      {/* Brasas y fuego suave en el fondo de la sección */}
-      <FireCanvas intensity={0.75} />
-
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-12 lg:gap-20 lg:px-10">
         <div className="lg:col-span-7">
           <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-plate p-6 sm:p-10">

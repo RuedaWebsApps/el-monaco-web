@@ -73,7 +73,7 @@ function Group({ cat, cart, onAdd, onOpen, solo }) {
   const withImg = list.filter((d) => d.image);
   const plain = list.filter((d) => !d.image);
   const inCart = (id) => cart.some((c) => c.id === id);
-  const cols = cat.id === 'especiales' ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
+  const cols = cat.id === 'acompanantes' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-2 lg:grid-cols-3';
 
   return (
     <div className="mt-16 first:mt-10">

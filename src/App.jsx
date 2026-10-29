@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DishModal from './components/DishModal';
 import CartDrawer from './components/CartDrawer';
+import FireCanvas from './components/FireCanvas';
 import { waLink } from './data/menuData';
 
 export default function App() {
@@ -26,6 +27,9 @@ export default function App() {
 
   return (
     <>
+      {/* Animación de llamas y brasas fija que acompaña todo el scroll */}
+      <FireCanvas fixed intensity={1.1} />
+
       <Navbar count={count} onCart={() => setCartOpen(true)} />
       <main>
         <Hero />
