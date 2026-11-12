@@ -14,7 +14,7 @@ export default function Barril() {
               src="/images/chicharron-barril.webp"
               alt="Chicharrón al barril"
               loading="lazy"
-              className="plate-shadow relative z-10 max-h-full max-w-full object-contain"
+              className="plate-shadow float-slow relative z-10 max-h-full max-w-full object-contain"
             />
           </div>
         </div>

@@ -1,10 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, Minus, Plus } from 'lucide-react';
 import { waLink } from '../data/menuData';
 
 export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
   const [name, setName] = useState('');
   const [notes, setNotes] = useState('');
+
+  useEffect(() => {
+    if (!open) return;
+    const k = (e) => e.key === 'Escape' && onClose();
+    document.addEventListener('keydown', k);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', k);
+      document.body.style.overflow = '';
+    };
+  }, [open, onClose]);
+
   if (!open) return null;
 
   const send = () => {

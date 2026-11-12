@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { business, waLink } from '../data/menuData';
 
 const rows = [
+  ['Fundador', `${business.founder} · ${business.founderRole}`, null],
   ['Teléfono', business.phone, `tel:${business.phoneRaw}`],
   ['WhatsApp', business.phone, waLink()],
+  ['Ubicación', business.address, business.mapsUrl],
+  ['Sitio Web', business.website, business.websiteUrl],
   ['Correo', business.email, `mailto:${business.email}`],
-  ['Ubicación', business.city, null],
 ];
 
 export default function Contact() {

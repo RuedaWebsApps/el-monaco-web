@@ -28,17 +28,21 @@ function AddButton({ added, onClick, className = '' }) {
 
 function Card({ d, added, onAdd, onOpen }) {
   return (
-    <article className="group flex flex-col">
+    <article className="reveal group flex flex-col">
       <button
         onClick={() => onOpen(d)}
         className="relative flex aspect-[4/3] w-full cursor-pointer items-center justify-center overflow-hidden bg-plate p-6"
         aria-label={`Ver ${d.name}`}
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ember/15 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        />
         <img
           src={d.image}
           alt={`${d.name} - ${d.en}`}
           loading="lazy"
-          className="plate-shadow max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.05]"
+          className="plate-shadow relative z-10 max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.06]"
         />
       </button>
       <div className="mt-5 flex items-start justify-between gap-4">
@@ -64,7 +68,7 @@ function Card({ d, added, onAdd, onOpen }) {
 
 function Row({ d, added, onAdd }) {
   return (
-    <li className="flex items-start justify-between gap-6 border-b hairline py-5">
+    <li className="reveal flex items-start justify-between gap-6 border-b hairline py-5">
       <div className="max-w-xl">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
           <h4 className="display text-[1.45rem] leading-tight text-bone">{d.name}</h4>
@@ -130,15 +134,38 @@ export default function Menu({ cart, onAdd, onOpen }) {
 
   useEffect(() => {
     const els = sections.map((s) => document.getElementById(`sec-${s.id}`)).filter(Boolean);
-    const io = new IntersectionObserver(
+    const onScroll = () => {
+      const offset = window.innerHeight * 0.38;
+      let current = sections[0].id;
+      for (const el of els) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset) {
+          current = el.id.replace('sec-', '');
+        }
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver(
       (entries) => {
-        const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (vis) setActive(vis.target.id.replace('sec-', ''));
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            ro.unobserve(entry.target);
+          }
+        });
       },
-      { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.1, 0.5] },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    revealEls.forEach((el) => ro.observe(el));
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      ro.disconnect();
+    };
   }, []);
 
   return (

@@ -8,12 +8,25 @@ export default function Footer() {
           <img src="/logo.png" alt="El Mónaco" className="h-20 w-20 rounded-full" />
           <div>
             <p className="display text-2xl">El Mónaco</p>
-            <p className="eyebrow mt-1 !text-[0.58rem]">Ahumados al Barril · {business.city}</p>
+            <p className="eyebrow mt-1 !text-[0.58rem]">Ahumados al Barril · {business.address}</p>
+            <p className="mt-1 text-[0.7rem] tracking-wider text-ash">
+              {business.founder} · {business.founderRole}
+            </p>
           </div>
         </div>
-        <p className="text-[0.72rem] tracking-wider text-ash">
-          © {new Date().getFullYear()} {business.name}
-        </p>
+        <div className="flex flex-col items-start gap-1 sm:items-end">
+          <a
+            href={business.websiteUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[0.72rem] tracking-wider text-bone/80 transition-colors hover:text-ember"
+          >
+            {business.website}
+          </a>
+          <p className="text-[0.72rem] tracking-wider text-ash">
+            © {new Date().getFullYear()} {business.name}
+          </p>
+        </div>
       </div>
     </footer>
   );

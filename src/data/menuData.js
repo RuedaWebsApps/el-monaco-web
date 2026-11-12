@@ -2,7 +2,14 @@ export const business = {
   name: 'Ahumados al Barril El Mónaco',
   nameEn: 'Barrel Smoked El Mónaco',
   short: 'El Mónaco',
+  founder: 'Francisco Borja',
+  founderRole: 'Fundador y Director General',
+  founderRoleEn: 'Founder & General Director',
+  address: '8606 Research Blvd, Austin, TX 78758',
   city: 'Austin, Texas',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=8606+Research+Blvd,+Austin,+TX+78758',
+  website: 'www.ahumadoselmonacoatx.com',
+  websiteUrl: 'https://www.ahumadoselmonacoatx.com',
   phone: '737-429-8756',
   phoneRaw: '7374298756',
   whatsapp: '17374298756',
@@ -99,6 +106,50 @@ export const dishes = [
     description: 'Plátano macho maduro asado al barril cubierto con abundante queso fundido.',
     descriptionEn: 'Barrel-roasted sweet ripe plantain topped with melted cheese.',
     image: P + 'maduro-con-queso.webp',
+  },
+  {
+    id: 'antojito-colombiano',
+    category: 'especiales',
+    name: 'Antojito Colombiano',
+    en: 'Colombian Craving Plate',
+    description:
+      'Tira de chicharrón crujiente al barril, morcilla artesanal, chorizo colombiano, arepitas asadas y guacamole fresco.',
+    descriptionEn:
+      'Crispy barrel-smoked pork belly strip, artisanal blood sausage, Colombian chorizo, grilled mini corn cakes and fresh guacamole.',
+    image: P + 'antojito-colombiano.webp',
+  },
+  {
+    id: 'pecadito-tropical',
+    category: 'especiales',
+    name: 'Pecadito Tropical',
+    en: 'Tropical Temptation',
+    description:
+      'Plátano maduro asado al barril gratinado con queso fundido, bocados de queso a las finas hierbas y chicharrón carnudo al barril.',
+    descriptionEn:
+      'Barrel-roasted sweet plantain topped with melted cheese, herbed cheese bites and juicy barrel-smoked pork belly.',
+    image: P + 'pecadito-tropical.webp',
+  },
+  {
+    id: 'picadita-criolla',
+    category: 'especiales',
+    name: 'Picadita Criolla',
+    en: 'Creole Mixed Grill',
+    description:
+      'Trozos de chicharrón al barril, carne de res ahumada, chorizo artesanal y papa criolla dorada.',
+    descriptionEn:
+      'Barrel-smoked pork belly bites, smoked beef strips, artisanal chorizo and golden baby potatoes.',
+    image: P + 'picadita-criolla.webp',
+  },
+  {
+    id: 'arepa-queso-lechera',
+    category: 'especiales',
+    name: 'Arepa con Queso y Lechera',
+    en: 'Grilled Cheese Corn Cakes with Condensed Milk',
+    description:
+      'Arepas doradas al barril rellenas de queso fundido y bañadas con leche condensada.',
+    descriptionEn:
+      'Golden barrel-grilled corn cakes with melted cheese drizzled with sweet condensed milk.',
+    image: P + 'arepa-con-queso-y-lechera.webp',
   },
 
   // CORTES AL BARRIL / BARREL SMOKED CUTS
@@ -200,7 +251,7 @@ export const dishes = [
     description:
       'Nuestra parrillada más completa con chorizo colombiano, longaniza artesanal, dos costichicharrones, carne de res, costilla de cerdo, costilla de cordero, papa o yuca y plátano maduro.',
     descriptionEn:
-      'Our most complete grill with Colombian chorizo, artisanal sausage, two COSTICHICHARRONES, beef, pork rib, lamb rib, potato or yuca, and sweet ripe plantain.',
+      'Our most complete grill with Colombian chorizo, artisanal sausage, two costichicharrones, beef, pork rib, lamb rib, potato or yuca, and sweet ripe plantain.',
     image: P + 'bandeja-del-charro.webp',
   },
   {

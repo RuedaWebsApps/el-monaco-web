@@ -36,7 +36,9 @@ export default function Hero() {
         </div>
 
         <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-3 border-t hairline pt-6 text-[0.72rem] uppercase tracking-[0.2em] text-ash">
-          <span>{business.city}</span>
+          <a href={business.mapsUrl} target="_blank" rel="noreferrer" className="transition-colors hover:text-bone">
+            {business.address}
+          </a>
           <a href={`tel:${business.phoneRaw}`} className="transition-colors hover:text-bone">
             {business.phone}
           </a>
