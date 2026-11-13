@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { business } from '../data/menuData';
 
 const links = [
   ['Menú', '#menu'],
@@ -41,18 +42,44 @@ export default function Navbar({ count, onCart }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-5">
-          <button onClick={onCart} className="text-[0.72rem] uppercase tracking-[0.22em] text-bone cursor-pointer">
+        <div className="flex items-center gap-3 sm:gap-5">
+          <a
+            href={business.orderOnlineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-solid !py-2 !px-3.5 sm:!py-2.5 sm:!px-5 text-[0.68rem] sm:text-[0.72rem] uppercase tracking-[0.16em] font-bold !bg-ember !text-bone shadow-[0_0_15px_rgba(235,94,40,0.35)]"
+          >
+            ORDER ONLINE
+          </a>
+
+          <button onClick={onCart} className="hidden sm:block text-[0.72rem] uppercase tracking-[0.22em] text-bone cursor-pointer">
             Mi pedido{count > 0 && <span className="ml-2 text-ember">({count})</span>}
           </button>
-          <button className="md:hidden cursor-pointer" onClick={() => setOpen(!open)} aria-label="Menú">
+
+          <button className="md:hidden cursor-pointer p-1 text-bone" onClick={() => setOpen(!open)} aria-label="Menú">
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {open && (
-        <nav className="fade flex flex-col gap-6 border-t hairline px-6 py-8 md:hidden">
+        <nav className="fade flex flex-col gap-6 border-t hairline px-6 py-8 md:hidden bg-ink/98">
+          <a
+            href={business.orderOnlineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="btn btn-solid w-full text-center py-3.5 text-sm font-bold tracking-widest !bg-ember !text-bone shadow-[0_0_20px_rgba(235,94,40,0.4)]"
+          >
+            ORDER ONLINE
+          </a>
+          <button
+            onClick={() => { setOpen(false); onCart(); }}
+            className="text-left display text-2xl text-bone flex items-center justify-between border-b hairline pb-3"
+          >
+            <span>Mi pedido</span>
+            {count > 0 && <span className="text-ember text-xl">({count})</span>}
+          </button>
           {links.map(([t, h]) => (
             <a key={h} href={h} onClick={() => setOpen(false)} className="display text-3xl">
               {t}

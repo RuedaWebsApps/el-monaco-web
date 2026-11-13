@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { X, Minus, Plus } from 'lucide-react';
-import { waLink } from '../data/menuData';
+import { business, waLink } from '../data/menuData';
 
 export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
   const [name, setName] = useState('');
@@ -19,10 +19,13 @@ export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
 
   if (!open) return null;
 
+  const total = items.reduce((acc, i) => acc + (i.price ? i.price * i.qty : 0), 0);
+
   const send = () => {
-    const lines = items.map((i) => `• ${i.name} x${i.qty}`).join('\n');
+    const lines = items.map((i) => `• ${i.name} x${i.qty}${i.price ? ` ($${(i.price * i.qty).toFixed(2)})` : ''}`).join('\n');
     const text =
       `Hola El Mónaco, quisiera hacer un pedido.\n\n${name ? `Nombre: ${name}\n\n` : ''}${lines}` +
+      `${total > 0 ? `\n\nTotal estimado: $${total.toFixed(2)}` : ''}` +
       `${notes ? `\n\nNotas: ${notes}` : ''}\n\n¿Me confirman disponibilidad? Gracias.`;
     window.open(waLink(text), '_blank');
   };
@@ -45,9 +48,19 @@ export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
 
         <div className="flex-1 overflow-y-auto px-7">
           {items.length === 0 ? (
-            <p className="py-16 text-center text-[0.9rem] text-ash">
-              Aún no has agregado platos. Explora la carta y elige lo que se te antoje.
-            </p>
+            <div className="py-16 text-center space-y-6">
+              <p className="text-[0.9rem] text-ash">
+                Aún no has agregado platos. Explora la carta y elige lo que se te antoje.
+              </p>
+              <a
+                href={business.orderOnlineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-solid inline-block !bg-ember !text-bone font-bold tracking-wider"
+              >
+                ORDER ONLINE DIRECTO
+              </a>
+            </div>
           ) : (
             <>
               <ul>
@@ -60,6 +73,11 @@ export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
                     )}
                     <div className="min-w-0 flex-1">
                       <p className="display truncate text-xl leading-tight">{i.name}</p>
+                      {i.price != null && (
+                        <p className="text-xs text-ember font-semibold mt-0.5">
+                          ${(i.price * i.qty).toFixed(2)} {i.qty > 1 && <span className="text-ash font-normal">(${i.price.toFixed(2)} c/u)</span>}
+                        </p>
+                      )}
                     </div>
                     <div className="flex items-center gap-3 text-ash">
                       <button onClick={() => onQty(i.id, i.qty - 1)} className="cursor-pointer hover:text-bone" aria-label="Menos"><Minus size={14} /></button>
@@ -70,7 +88,14 @@ export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
                 ))}
               </ul>
 
-              <div className="space-y-6 py-8">
+              {total > 0 && (
+                <div className="flex items-baseline justify-between border-b hairline py-4">
+                  <span className="text-xs uppercase tracking-widest text-ash">Subtotal estimado</span>
+                  <span className="display text-2xl font-semibold text-ember">${total.toFixed(2)}</span>
+                </div>
+              )}
+
+              <div className="space-y-6 py-6">
                 <input className="field" placeholder="Tu nombre" value={name} onChange={(e) => setName(e.target.value)} />
                 <textarea
                   className="field resize-none"
@@ -84,13 +109,25 @@ export default function CartDrawer({ open, items, onClose, onQty, onClear }) {
           )}
         </div>
 
-        <div className="flex items-center justify-between gap-4 border-t hairline px-7 py-6">
+        <div className="flex flex-col gap-3 border-t hairline px-7 py-6">
           {items.length > 0 ? (
             <>
-              <button onClick={onClear} className="cursor-pointer text-[0.68rem] uppercase tracking-[0.2em] text-ash hover:text-bone">
-                Vaciar
-              </button>
-              <button onClick={send} className="btn btn-solid">Enviar por WhatsApp</button>
+              <div className="flex items-center justify-between gap-4">
+                <button onClick={onClear} className="cursor-pointer text-[0.68rem] uppercase tracking-[0.2em] text-ash hover:text-bone">
+                  Vaciar
+                </button>
+                <button onClick={send} className="btn btn-solid flex-1 text-center">
+                  Pedir por WhatsApp
+                </button>
+              </div>
+              <a
+                href={business.orderOnlineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-line w-full text-center text-xs tracking-wider uppercase font-semibold !text-ember !border-ember/40 hover:!border-ember"
+              >
+                O pedir en ORDER ONLINE
+              </a>
             </>
           ) : (
             <button onClick={onClose} className="btn btn-line w-full">Ver la carta</button>

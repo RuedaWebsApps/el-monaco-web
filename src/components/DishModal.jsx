@@ -33,8 +33,17 @@ export default function DishModal({ dish, added, onClose, onAdd }) {
 
         <div className="flex flex-col justify-center p-8 sm:p-12">
           <p className="eyebrow">{cat?.name} · {cat?.en}</p>
-          <h3 className="display mt-4 text-4xl leading-tight sm:text-5xl">{dish.name}</h3>
-          <p className="display mt-2 text-2xl italic text-brass">{dish.en}</p>
+          <div className="mt-4 flex flex-wrap items-baseline justify-between gap-4">
+            <div>
+              <h3 className="display text-4xl leading-tight sm:text-5xl">{dish.name}</h3>
+              <p className="display mt-2 text-2xl italic text-brass">{dish.en}</p>
+            </div>
+            {dish.price != null && (
+              <span className="display text-3xl font-semibold text-ember">
+                ${dish.price.toFixed(2)}
+              </span>
+            )}
+          </div>
 
           {(dish.description || dish.descriptionEn) && (
             <div className="mt-7 space-y-2">
@@ -53,7 +62,15 @@ export default function DishModal({ dish, added, onClose, onAdd }) {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-4">
-            <button onClick={() => onAdd(dish)} className="btn btn-solid">
+            <a
+              href={business.orderOnlineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-solid !bg-ember !text-bone font-bold tracking-wider shadow-[0_0_15px_rgba(235,94,40,0.35)]"
+            >
+              ORDER ONLINE
+            </a>
+            <button onClick={() => onAdd(dish)} className="btn btn-line">
               {added ? 'En tu pedido / In order' : 'Agregar / Add to order'}
             </button>
             <button onClick={onClose} className="btn btn-line">Cerrar / Close</button>

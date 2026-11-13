@@ -28,9 +28,24 @@ export default function Hero() {
           {business.quoteEs} Comida ahumada y asada, cocinada al barril.
         </p>
 
-        <div className="rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
-          <a href="#menu" className="btn btn-solid">Ver el menú</a>
-          <a href={waLink()} target="_blank" rel="noreferrer" className="btn btn-line">
+        <div className="rise mt-10 flex flex-col sm:flex-row flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+          <a
+            href={business.orderOnlineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-solid w-full sm:w-auto text-center !bg-ember !text-bone font-bold tracking-widest text-[0.88rem] py-4 px-8 shadow-[0_0_25px_rgba(235,94,40,0.45)] hover:shadow-[0_0_35px_rgba(235,94,40,0.7)]"
+          >
+            ORDER ONLINE
+          </a>
+          <a href="#menu" className="btn btn-line w-full sm:w-auto text-center">
+            Ver el menú
+          </a>
+          <a
+            href={waLink()}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-line w-full sm:w-auto text-center"
+          >
             Pedir por WhatsApp
           </a>
         </div>

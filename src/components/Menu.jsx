@@ -46,11 +46,18 @@ function Card({ d, added, onAdd, onOpen }) {
         />
       </button>
       <div className="mt-5 flex items-start justify-between gap-4">
-        <div>
+        <div className="min-w-0 flex-1">
           <h4 className="display text-[1.6rem] leading-tight text-bone">{d.name}</h4>
           <p className="display mt-0.5 text-[1.1rem] italic text-brass">{d.en}</p>
         </div>
-        <AddButton added={added} onClick={() => onAdd(d)} className="mt-1.5" />
+        <div className="shrink-0 text-right flex flex-col items-end">
+          {d.price != null && (
+            <span className="display text-[1.4rem] font-semibold text-ember leading-none">
+              ${d.price.toFixed(2)}
+            </span>
+          )}
+          <AddButton added={added} onClick={() => onAdd(d)} className={d.price != null ? 'mt-2' : 'mt-1.5'} />
+        </div>
       </div>
       {(d.description || d.descriptionEn) && (
         <div className="mt-3 space-y-1.5 border-t hairline pt-3">
@@ -81,7 +88,14 @@ function Row({ d, added, onAdd }) {
           <p className="mt-1 text-[0.78rem] italic leading-relaxed text-ash">{d.descriptionEn}</p>
         )}
       </div>
-      <AddButton added={added} onClick={() => onAdd(d)} className="mt-1.5" />
+      <div className="shrink-0 text-right flex flex-col items-end">
+        {d.price != null && (
+          <span className="display text-[1.25rem] font-semibold text-ember leading-none">
+            ${d.price.toFixed(2)}
+          </span>
+        )}
+        <AddButton added={added} onClick={() => onAdd(d)} className={d.price != null ? 'mt-2' : 'mt-1.5'} />
+      </div>
     </li>
   );
 }

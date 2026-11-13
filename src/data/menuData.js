@@ -10,6 +10,7 @@ export const business = {
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=8606+Research+Blvd,+Austin,+TX+78758',
   website: 'www.ahumadoselmonacoatx.com',
   websiteUrl: 'https://www.ahumadoselmonacoatx.com',
+  orderOnlineUrl: 'https://fromtherestaurant.com/ahumados-al-barril-el-monaco/locations/',
   phone: '737-429-8756',
   phoneRaw: '7374298756',
   whatsapp: '17374298756',
@@ -76,6 +77,7 @@ export const dishes = [
     category: 'especiales',
     name: 'Chicharrón al Barril',
     en: 'Barrel-Smoked Pork Belly',
+    price: 19.99,
     description: 'Crujiente chicharrón al barril con papa o yuca.',
     descriptionEn: 'Crispy barrel-smoked pork belly with potato or yuca.',
     image: P + 'chicharron.webp',
@@ -85,6 +87,7 @@ export const dishes = [
     category: 'especiales',
     name: 'Costichicharrón al Barril',
     en: 'Barrel-Smoked Pork Rib with Crispy Skin',
+    price: 25.00,
     description: 'Costilla de cerdo con cuero ahumada al barril, con papa o yuca.',
     descriptionEn: 'Barrel-smoked pork rib with crispy skin, with potato or yuca.',
     image: P + 'costichicharron.webp',
@@ -94,6 +97,7 @@ export const dishes = [
     category: 'especiales',
     name: 'Media Plancha de Pork Belly Crispy',
     en: 'Half Slab Crispy Barrel-Smoked Pork Belly',
+    price: null,
     description: 'Media plancha de chicharrón carnudo al barril con piel dorada ultra crujiente.',
     descriptionEn: 'Half slab of meaty barrel-smoked pork belly with ultra-crispy golden skin.',
     image: P + 'media-plancha-pork-belly-crispy.webp',
@@ -103,6 +107,7 @@ export const dishes = [
     category: 'especiales',
     name: 'Maduro con Queso',
     en: 'Ripe Plantain with Cheese',
+    price: 7.99,
     description: 'Plátano macho maduro asado al barril cubierto con abundante queso fundido.',
     descriptionEn: 'Barrel-roasted sweet ripe plantain topped with melted cheese.',
     image: P + 'maduro-con-queso.webp',
@@ -112,6 +117,7 @@ export const dishes = [
     category: 'especiales',
     name: 'Antojito Colombiano',
     en: 'Colombian Craving Plate',
+    price: null,
     description:
       'Tira de chicharrón crujiente al barril, morcilla artesanal, chorizo colombiano, arepitas asadas y guacamole fresco.',
     descriptionEn:
@@ -123,33 +129,48 @@ export const dishes = [
     category: 'especiales',
     name: 'Pecadito Tropical',
     en: 'Tropical Temptation',
+    price: null,
     description:
-      'Plátano maduro asado al barril gratinado con queso fundido, bocados de queso a las finas hierbas y chicharrón carnudo al barril.',
+      'Plátano maduro asado al barril bañado con lechera dulce y queso rallado.',
     descriptionEn:
-      'Barrel-roasted sweet plantain topped with melted cheese, herbed cheese bites and juicy barrel-smoked pork belly.',
+      'Barrel-roasted sweet ripe plantain drizzled with condensed milk and shredded cheese.',
     image: P + 'pecadito-tropical.webp',
   },
   {
     id: 'picadita-criolla',
     category: 'especiales',
     name: 'Picadita Criolla',
-    en: 'Creole Mixed Grill',
+    en: 'Creole Sampler',
+    price: null,
     description:
-      'Trozos de chicharrón al barril, carne de res ahumada, chorizo artesanal y papa criolla dorada.',
+      'Porción de chicharrón al barril, costilla de cerdo, trocitos de yuca frita, patacones y ají de la casa.',
     descriptionEn:
-      'Barrel-smoked pork belly bites, smoked beef strips, artisanal chorizo and golden baby potatoes.',
+      'Portion of barrel-smoked pork belly, pork rib, fried yuca bites, plantain chips and house chili sauce.',
     image: P + 'picadita-criolla.webp',
   },
   {
-    id: 'arepa-queso-lechera',
+    id: 'arepa-con-queso',
     category: 'especiales',
     name: 'Arepa con Queso y Lechera',
-    en: 'Grilled Cheese Corn Cakes with Condensed Milk',
+    en: 'Corn Cake with Cheese & Condensed Milk',
+    price: null,
     description:
-      'Arepas doradas al barril rellenas de queso fundido y bañadas con leche condensada.',
+      'Arepa asada dorada con queso fundido y un toque de leche condensada.',
     descriptionEn:
-      'Golden barrel-grilled corn cakes with melted cheese drizzled with sweet condensed milk.',
+      'Grilled corn cake topped with melted cheese and a touch of condensed milk.',
     image: P + 'arepa-con-queso-y-lechera.webp',
+  },
+  {
+    id: 'tuetano',
+    category: 'especiales',
+    name: 'Tuétano al Barril',
+    en: 'Barrel Smoked Bone Marrow',
+    price: null,
+    description:
+      'Tuétano asado lentamente al barril con especias y hierbas frescas, servido con yuca dorada.',
+    descriptionEn:
+      'Slow barrel-roasted bone marrow with spices and fresh herbs, served with golden yuca.',
+    image: P + 'tuetano-al-barril.webp',
   },
 
   // CORTES AL BARRIL / BARREL SMOKED CUTS
@@ -158,6 +179,7 @@ export const dishes = [
     category: 'cortes',
     name: 'Ribeye al Barril',
     en: 'Barrel Smoked Ribeye',
+    price: 45.00,
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
@@ -165,21 +187,11 @@ export const dishes = [
     image: P + 'ribeye.webp',
   },
   {
-    id: 'new-york',
-    category: 'cortes',
-    name: 'New York al Barril',
-    en: 'Barrel Smoked New York Strip',
-    description:
-      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
-    descriptionEn:
-      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
-    image: P + 'new-york.webp',
-  },
-  {
     id: 'picana',
     category: 'cortes',
     name: 'Picaña al Barril',
-    en: 'Barrel Smoked Picanha',
+    en: 'Barrel Smoked Picaña',
+    price: 38.00,
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
@@ -191,6 +203,7 @@ export const dishes = [
     category: 'cortes',
     name: 'Costilla de Res Angus al Barril',
     en: 'Barrel Smoked Angus Beef Rib',
+    price: 45.00,
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
@@ -198,21 +211,11 @@ export const dishes = [
     image: P + 'costillas-angus.webp',
   },
   {
-    id: 'tuetano-al-barril',
-    category: 'cortes',
-    name: 'Tuétano al Barril',
-    en: 'Barrel Smoked Bone Marrow',
-    description:
-      'Tuétano de res asado y ahumado lentamente al barril, servido con bastones de yuca dorada.',
-    descriptionEn:
-      'Slow barrel-smoked beef bone marrow served with golden fried yuca sticks.',
-    image: P + 'tuetano-al-barril.webp',
-  },
-  {
     id: 'cordero',
     category: 'cortes',
     name: 'Costilla de Cordero al Barril',
     en: 'Barrel Smoked Lamb Rib',
+    price: 36.99,
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
@@ -224,19 +227,33 @@ export const dishes = [
     category: 'cortes',
     name: 'Entraña al Barril',
     en: 'Barrel Smoked Skirt Steak',
+    price: 28.99,
     description:
       'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
     descriptionEn:
       'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
     image: null,
   },
+  {
+    id: 'new-york',
+    category: 'cortes',
+    name: 'New York al Barril',
+    en: 'Barrel Smoked New York Strip',
+    price: null,
+    description:
+      'Cada corte incluye chorizo, longaniza, yuca, papa y plátano macho maduro.',
+    descriptionEn:
+      'Each cut includes chorizo, sausage, yuca, potato and sweet ripe plantain.',
+    image: P + 'new-york.webp',
+  },
 
   // ESPECIALES DEL BARRIL / BARREL SPECIALS
   {
-    id: 'bandeja-monaco',
+    id: 'bandeja-el-monaco',
     category: 'bandejas',
     name: 'Bandeja El Mónaco',
     en: 'El Mónaco Platter',
+    price: 25.00,
     description:
       'Una combinación de longaniza artesanal, carne de res, costilla de cerdo y chicharrón al barril, con papa o yuca.',
     descriptionEn:
@@ -248,10 +265,11 @@ export const dishes = [
     category: 'bandejas',
     name: 'Bandeja del Charro',
     en: 'Charro Platter',
+    price: 79.99,
     description:
-      'Nuestra parrillada más completa con chorizo colombiano, longaniza artesanal, dos costichicharrones, carne de res, costilla de cerdo, costilla de cordero, papa o yuca y plátano maduro.',
+      'Nuestra parrillada más completa con chorizo colombiano, longaniza artesanal, dos COSTICHICHARRONES, carne de res, costilla de cerdo, costilla de cordero, papa o yuca y plátano maduro.',
     descriptionEn:
-      'Our most complete grill with Colombian chorizo, artisanal sausage, two costichicharrones, beef, pork rib, lamb rib, potato or yuca, and sweet ripe plantain.',
+      'Our most complete grill with Colombian chorizo, artisanal sausage, two COSTICHICHARRONES, beef, pork rib, lamb rib, potato or yuca, and sweet ripe plantain.',
     image: P + 'bandeja-del-charro.webp',
   },
   {
@@ -259,6 +277,7 @@ export const dishes = [
     category: 'bandejas',
     name: 'Bandeja Montañera',
     en: 'Montañera Platter',
+    price: 25.00,
     description:
       'Base de queso, chicharrón al barril, morcilla, chorizo colombiano y plátano maduro.',
     descriptionEn:
@@ -270,6 +289,7 @@ export const dishes = [
     category: 'bandejas',
     name: 'Bandeja de Moro (dos tipos de carne)',
     en: 'Moro Rice Platter (two meat options)',
+    price: 24.99,
     description:
       'Arroz moro con dos opciones de carne a elegir: costilla de cerdo, carne de res o chicharrón al barril, y plátano macho frito.',
     descriptionEn:
@@ -281,6 +301,7 @@ export const dishes = [
     category: 'bandejas',
     name: 'Tabla Premium',
     en: 'Premium Barrel-Smoked Board',
+    price: 89.99,
     description:
       'Selección de carnes premium al barril con chorizo colombiano, longaniza artesanal, carne de res, ribeye, entraña de res, costilla de cordero, papa, yuca y plátano maduro.',
     descriptionEn:
@@ -294,6 +315,7 @@ export const dishes = [
     category: 'acompanantes',
     name: 'Arroz Moro',
     en: 'Moro Rice',
+    price: 5.99,
     description: 'Arroz moro tradicional de la casa.',
     descriptionEn: 'Traditional house Moro rice.',
     image: P + 'arroz-moro.webp',
@@ -303,6 +325,7 @@ export const dishes = [
     category: 'acompanantes',
     name: 'Tajadas de Plátano',
     en: 'Fried Sweet Plantain Slices',
+    price: null,
     description: 'Tajadas de plátano macho maduro fritas.',
     descriptionEn: 'Fried sweet ripe plantain slices.',
     image: P + 'tajadas-de-platano.webp',
@@ -312,6 +335,7 @@ export const dishes = [
     category: 'acompanantes',
     name: 'Yuca Frita',
     en: 'Fried Yuca',
+    price: null,
     description: 'Bastones de yuca frita dorados y crujientes.',
     descriptionEn: 'Crispy golden fried yuca sticks.',
     image: P + 'yuca-frita.webp',
@@ -321,16 +345,71 @@ export const dishes = [
     category: 'acompanantes',
     name: 'Trocitos de Yuca',
     en: 'Crispy Yuca Bites',
+    price: null,
     description: 'Bocados de yuca dorados al punto.',
     descriptionEn: 'Golden fried yuca bites.',
     image: P + 'trocitos-de-yuca.webp',
   },
-  { id: 'papa', category: 'acompanantes', name: 'Papa', en: 'Baked Potato', description: '', descriptionEn: '', image: null },
-  { id: 'yuca', category: 'acompanantes', name: 'Yuca', en: 'Yuca', description: '', descriptionEn: '', image: null },
-  { id: 'maduro-asado', category: 'acompanantes', name: 'Maduro Asado', en: 'Ripe Plantain', description: '', descriptionEn: '', image: null },
-  { id: 'morcilla', category: 'acompanantes', name: 'Morcilla', en: 'Blood Sausage', description: '', descriptionEn: '', image: null },
-  { id: 'chorizo', category: 'acompanantes', name: 'Chorizo Artesanal', en: 'Artisanal Chorizo', description: '', descriptionEn: '', image: null },
-  { id: 'longaniza', category: 'acompanantes', name: 'Longaniza', en: 'Artisanal Sausage', description: '', descriptionEn: '', image: null },
+  {
+    id: 'papa',
+    category: 'acompanantes',
+    name: 'Papa',
+    en: 'Baked Potato',
+    price: 6.99,
+    description: 'Papa asada de la casa.',
+    descriptionEn: 'House baked potato.',
+    image: null,
+  },
+  {
+    id: 'yuca',
+    category: 'acompanantes',
+    name: 'Yuca',
+    en: 'Yuca',
+    price: 5.99,
+    description: 'Porción de yuca tradicional.',
+    descriptionEn: 'Traditional yuca portion.',
+    image: null,
+  },
+  {
+    id: 'maduro-asado',
+    category: 'acompanantes',
+    name: 'Maduro Asado',
+    en: 'Ripe Plantain',
+    price: 5.99,
+    description: 'Plátano maduro asado al barril.',
+    descriptionEn: 'Barrel-roasted sweet ripe plantain.',
+    image: null,
+  },
+  {
+    id: 'morcilla',
+    category: 'acompanantes',
+    name: 'Morcilla',
+    en: 'Blood Sausage',
+    price: 6.99,
+    description: 'Porción de morcilla artesanal.',
+    descriptionEn: 'Portion of artisanal blood sausage.',
+    image: null,
+  },
+  {
+    id: 'chorizo',
+    category: 'acompanantes',
+    name: 'Chorizo Artesanal',
+    en: 'Artisanal Chorizo',
+    price: 6.99,
+    description: 'Chorizo colombiano artesanal al barril.',
+    descriptionEn: 'Artisanal Colombian chorizo.',
+    image: null,
+  },
+  {
+    id: 'longaniza',
+    category: 'acompanantes',
+    name: 'Longaniza',
+    en: 'Artisanal Sausage',
+    price: 6.99,
+    description: 'Longaniza artesanal tradicional.',
+    descriptionEn: 'Traditional artisanal sausage.',
+    image: null,
+  },
 
   // SALSAS / SAUCES
   {
@@ -338,6 +417,7 @@ export const dishes = [
     category: 'salsas',
     name: 'Ají Ahumado',
     en: 'Smoked Chili Sauce',
+    price: null,
     description: 'Ají artesanal ahumado de la casa. Incluido con todos los platos.',
     descriptionEn: 'House barrel-smoked chili sauce. Included with all plates.',
     image: P + 'aji-ahumado.webp',
@@ -347,6 +427,7 @@ export const dishes = [
     category: 'salsas',
     name: 'Chimichurri Ahumado',
     en: 'Smoked Chimichurri Sauce',
+    price: null,
     description: 'Salsa chimichurri ahumada de la casa. Incluida con todos los platos.',
     descriptionEn: 'House smoked chimichurri sauce. Included with all plates.',
     image: P + 'chimichurri-ahumado.webp',
@@ -356,6 +437,7 @@ export const dishes = [
     category: 'salsas',
     name: 'Guacamole',
     en: 'Fresh Guacamole',
+    price: null,
     description: 'Guacamole fresco de la casa. Incluido con todos los platos.',
     descriptionEn: 'Fresh house guacamole. Included with all plates.',
     image: P + 'guacamole.webp',
@@ -365,8 +447,9 @@ export const dishes = [
     category: 'salsas',
     name: 'Salsa de Queso',
     en: 'Cheese Sauce',
-    description: 'Adicional.',
-    descriptionEn: 'Additional sauce.',
+    price: 1.50,
+    description: 'Adicional de salsa de queso fundido.',
+    descriptionEn: 'Additional melted cheese sauce.',
     image: null,
   },
 ];
